@@ -27,9 +27,9 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.find(:all)
     if request.post?
       respond_to do |format|
+        @category = Category.new(params[:category])
         format.html { save_category }
         format.js do 
-          @category = Category.create(params[:category])
           # @category.attributes = params[:category]
           # @category.save
           @article = Article.new
@@ -43,7 +43,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def save_category
-    if @category.save!
+    if @category.save
       flash[:notice] = _('Category was successfully saved.')
     else
       flash[:error] = _('Category could not be saved.')
