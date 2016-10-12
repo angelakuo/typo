@@ -43,10 +43,6 @@ Given /^the blog is set up$/ do
                 :state => 'active'})
 end
 
-And /^I print everything$/ do
-  page.should have_content('form[action="/admin/categories/edit"]')
-end
-
 And /^I am logged into the admin panel$/ do
   visit '/accounts/login'
   fill_in 'user_login', :with => 'admin'

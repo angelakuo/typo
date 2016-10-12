@@ -9,4 +9,3 @@ Feature: Edit Categories
 
   Scenario: Successfully make a category
     Given I am on the admin categories page
-    And I print everything
